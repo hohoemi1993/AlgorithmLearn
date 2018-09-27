@@ -28,7 +28,7 @@ public class QuickSortRecusive {
         }
 
         // 这一轮被比较的数,这里先拿出来
-        // todo
+        // todo: 使用随机数,避免极端情况
         int key = array[low];
         // 定义两个哨兵,从数组两端开始巡逻
         int i = low;
@@ -51,9 +51,10 @@ public class QuickSortRecusive {
                 array[j--] = array [i];
             }
         }
-
+        // 最后把最先拿出来的数,放进去
+        // 至此 key 一定小于左边,大于右边 也就是找到了key 在排好的数组中应有的位子
         array[i] = key;
-
+        // 分治法
         sort(array,low,i);
         sort(array,i+1,high);
     }
